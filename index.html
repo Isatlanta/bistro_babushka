@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="babushka/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;600&family=Gideon+Roman&display=swap"
+      rel="stylesheet"
+    />
 
-    <title>Babushka</title>
+    <title>Bistro Babushka</title>
     <style>
       body {
         margin: 0;
@@ -21,6 +31,8 @@
         border-radius: 5px;
         border: ridge 4px rgba(196, 85, 11, 0.61);
         padding: 0.2rem;
+        font-family: Gideon Roman;
+        font-size: 1rem;
       }
       section {
         display: grid;
@@ -69,7 +81,19 @@
       }
 
       h2 {
-        font-size: 1rem;
+        font-family: Gideon Roman;
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-family: Barlow Condensed;
+        font-weight: 300;
+        font-size: 1.2rem;
+      }
+
+      footer {
+        background-color: RGB(255, 229, 208);
+        height: 20vh;
       }
 
       @media (min-width: 1000px) {
@@ -101,14 +125,15 @@
           display: flex;
           flex-flow: column;
           width: fit-content;
-          top: 40%;
-          position: sticky;
+          position: absolute;
+          top: 15%;
+          left: 50%;
         }
 
         .burgermenu {
           position: sticky;
           top: 13%;
-          left: 0%;
+          left: 80%;
         }
       }
 
@@ -121,8 +146,8 @@
       .pris {
         display: flex;
         justify-content: end;
-        font-size: 1rem;
-        font-style: bold;
+        font-size: 1.2rem;
+        font-weight: 600;
       }
     </style>
   </head>
@@ -152,6 +177,11 @@
         <p class="pris"></p>
       </article>
     </template>
+
+    <footer>
+      <h2>Bistro Babushka</h2>
+      <p>Kontaktoplysninger:</p>
+    </footer>
 
     <script>
       document.addEventListener("DOMContentLoaded", start);
@@ -205,7 +235,6 @@
       }
 
       function vis() {
-        nav.classList.remove("hide");
         menu.forEach((ret) => {
           if (ret.kategori == filter || filter == "alle") {
             const klon = temp.cloneNode(true).content;
@@ -219,6 +248,7 @@
             klon
               .querySelector("img")
               .addEventListener("click", () => visDetaljer(ret));
+            nav.classList.remove("hide");
             container.appendChild(klon);
           }
         });
